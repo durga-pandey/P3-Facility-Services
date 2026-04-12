@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Enquiry</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid #1b98f5;
+      }
+      .header {
+        background: #1b98f5;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .content {
+        padding: 30px 25px;
+        color: #333333;
+      }
+      .content h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #1b98f5;
+      }
+      .details-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .details-table th,
+      .details-table td {
+        padding: 12px 10px;
+        text-align: left;
+        border-bottom: 1px solid #eeeeee;
+      }
+      .details-table th {
+        background-color: #f0f4f8;
+        color: #1b98f5;
+        font-weight: 600;
+      }
+      .footer {
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #888888;
+        background: #f5f7fa;
+      }
+      @media only screen and (max-width: 620px) {
+        .container {
+          margin: 20px;
+        }
+        .content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">P3 FACILITY SERVICES</div>
+
+      <div class="content">
+        <h2>New Enquiry Received</h2>
+        <p>
+          You have received a new enquiry via the website. Details are below:
+        </p>
+
+        <table class="details-table">
+          <tr>
+            <th>Name</th>
+            <td><%= enquiry.name %></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><%= enquiry.email %></td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td><%= enquiry.phone %></td>
+          </tr>
+          <tr>
+            <th>Location</th>
+            <td><%= enquiry.location %></td>
+          </tr>
+          <tr>
+            <th>Service Type</th>
+            <td>
+              <%= enquiry.serviceType.charAt(0).toUpperCase() +
+              enquiry.serviceType.slice(1) %>
+            </td>
+          </tr>
+          <tr>
+            <th>Start Date</th>
+            <td><%= new Date(enquiry.startDate).toLocaleDateString() %></td>
+          </tr>
+          <tr>
+            <th>Submitted At</th>
+            <td><%= new Date(enquiry.createdAt).toLocaleString() %></td>
+          </tr>
+        </table>
+
+        <p style="margin-top: 20px">
+          Please follow up with the client as soon as possible.
+        </p>
+      </div>
+
+      <div class="footer">
+        &copy; <%= new Date().getFullYear() %> P3 FACILITY SERVICES. All rights
+        reserved.
+      </div>
+    </div>
+  </body>
+</html>
