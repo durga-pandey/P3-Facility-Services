@@ -16,6 +16,7 @@ import ServicesSection from "../components/ServicesSection";
 import ClientsSection from "../components/ClientsSection";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import Gallery from "../components/Gallery";
 
 // Feature icons mapping
 const featureIcons = {
@@ -47,7 +48,7 @@ const HeroSection = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (heroRef.current) observer.observe(heroRef.current);
@@ -295,7 +296,7 @@ const WhyChooseSection = () => {
     const fetchPages = async () => {
       try {
         const { data } = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/pageContent/all`
+          `${import.meta.env.VITE_API_BASE_URL}/pageContent/all`,
         );
         if (data.success) {
           setPages(data.data);
@@ -346,7 +347,7 @@ const WhyChooseSection = () => {
                   to={{
                     pathname: "/why-choose",
                     search: `?title=${encodeURIComponent(
-                      page.title.replace(/\s+/g, "-").toLowerCase()
+                      page.title.replace(/\s+/g, "-").toLowerCase(),
                     )}`,
                   }}
                   state={{ id: page._id }}
@@ -440,6 +441,7 @@ const LandingPage = () => {
       <ServicesSection />
       <StatsSection />
       <ClientsSection />
+      <Gallery />
     </div>
   );
 };
