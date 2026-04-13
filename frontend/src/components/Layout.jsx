@@ -110,7 +110,7 @@ function Layout({ children }) {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/enquiry/create`,
-        formData
+        formData,
       );
       if (response.data.success) {
         addToast(response.data.message, "success");
@@ -169,7 +169,7 @@ function Layout({ children }) {
         formDataToSend,
         {
           headers: { "Content-Type": "multipart/form-data" },
-        }
+        },
       );
 
       if (response.data.success) {
@@ -277,15 +277,14 @@ function Layout({ children }) {
             >
               {/* Logo Container - Can easily replace with actual logo */}
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                  <svg
-                    className="w-7 h-7 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
-                  </svg>
+                <div className="w-12 h-12 bg-gradient-to-br rounded-full from-indigo-600 to-blue-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                  <img
+                    src="/images/logo.jpeg"
+                    alt="logo"
+                    className="w-12 h-12 rounded-full object-contain"
+                  />
                 </div>
+
                 {/* Logo glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300"></div>
               </div>
